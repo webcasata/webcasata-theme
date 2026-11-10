@@ -1,0 +1,65 @@
+// Styles for the custom block styles registered in inc/block-editor.php.
+
+// Group: Card.
+.wp-block-group.is-style-webcasata-card {
+	padding: 1.5rem;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: calc(var(--wc-btn-radius, 4px) * 2);
+	background-color: #fff;
+	color: var(--wc-color-text, #334155);
+	box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.wp-block-group.is-style-webcasata-card > :first-child {
+	margin-top: 0;
+}
+
+.wp-block-group.is-style-webcasata-card > :last-child {
+	margin-bottom: 0;
+}
+
+// Image: Rounded with shadow.
+.wp-block-image.is-style-webcasata-shadow img {
+	border-radius: 12px;
+	box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16);
+}
+
+// List: Checklist.
+ul.is-style-webcasata-checklist,
+.wp-block-list.is-style-webcasata-checklist {
+	list-style: none;
+	padding-left: 0;
+}
+
+.is-style-webcasata-checklist li {
+	position: relative;
+	padding-left: 1.75rem;
+}
+
+.is-style-webcasata-checklist li::before {
+	content: "\2713";
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: var(--wc-color-primary, #2563eb);
+	font-weight: 700;
+}
+
+// Quote: Accent border.
+.wp-block-quote.is-style-webcasata-accent {
+	border-left: 4px solid var(--wc-color-tertiary, #f59e0b);
+	padding: 0.5rem 0 0.5rem 1.25rem;
+	font-size: 1.125em;
+	font-style: italic;
+}
+
+// Separator: Short accent.
+.wp-block-separator.is-style-webcasata-short {
+	width: 80px;
+	max-width: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 0;
+	border-top: 3px solid var(--wc-color-primary, #2563eb);
+	opacity: 1;
+}

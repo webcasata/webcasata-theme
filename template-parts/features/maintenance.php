@@ -12,14 +12,14 @@ defined( 'ABSPATH' ) || exit;
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php bloginfo( 'name' ); ?> &mdash; <?php esc_html_e( 'Maintenance', 'webcasata' ); ?></title>
 	<?php wp_head(); ?>
 </head>
-<body class="webcasata-maintenance">
+<body <?php body_class( 'webcasata-maintenance' ); ?>>
+<?php wp_body_open(); ?>
 	<div class="maintenance-wrap">
 		<h1 class="maintenance-title"><?php bloginfo( 'name' ); ?></h1>
 		<p class="maintenance-message">
-			<?php esc_html_e( 'We are performing scheduled maintenance. Please check back soon.', 'webcasata' ); ?>
+			<?php esc_html_e( 'We are performing scheduled maintenance. Please check back soon.', 'webcasata-theme' ); ?>
 		</p>
 	</div>
 	<?php wp_footer(); ?>

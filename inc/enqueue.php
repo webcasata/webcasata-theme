@@ -32,7 +32,16 @@ function webcasata_enqueue_assets() {
 	wp_enqueue_style( 'webcasata-style', WEBCASATA_URI . $css_rel, array(), webcasata_asset_version( $css_rel ) );
 
 	$js_rel = 'assets/js/theme.js';
-	wp_enqueue_script( 'webcasata-theme', WEBCASATA_URI . $js_rel, array(), webcasata_asset_version( $js_rel ), true );
+	wp_enqueue_script(
+		'webcasata-theme',
+		WEBCASATA_URI . $js_rel,
+		array(),
+		webcasata_asset_version( $js_rel ),
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer', // WordPress 6.3+; older versions load it in the footer.
+		)
+	);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -68,7 +77,8 @@ function webcasata_enqueue_fonts() {
 add_filter(
 	'wp_resource_hints',
 	static function ( $hints, $relation_type ) {
-		if ( 'preconnect' === $relation_type ) {
+		// Only preconnect when Google Fonts are actually being loaded.
+		if ( 'preconnect' === $relation_type && wp_style_is( 'webcasata-fonts', 'enqueued' ) ) {
 			$hints[] = array(
 				'href'        => 'https://fonts.gstatic.com',
 				'crossorigin' => 'anonymous',
@@ -99,24 +109,3 @@ function webcasata_enqueue_woocommerce_assets() {
 		wp_enqueue_style( 'webcasata-woocommerce', WEBCASATA_URI . $rel, array( 'webcasata-style' ), webcasata_asset_version( $rel ) );
 	}
 }
-
-/**
- * Defer the theme script.
- *
- * @param string $tag    Script tag.
- * @param string $handle Script handle.
- * @param string $src    Script source.
- * @return string
- */
-function webcasata_defer_script( $tag, $handle, $src ) {
-	if ( 'webcasata-theme' !== $handle ) {
-		return $tag;
-	}
-
-	return sprintf(
-		'<script src="%s" defer id="%s-js"></script>',
-		esc_url( $src ),
-		esc_attr( $handle )
-	);
-}
-add_filter( 'script_loader_tag', 'webcasata_defer_script', 10, 3 );

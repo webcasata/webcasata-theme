@@ -3,15 +3,28 @@ Theme Name: Webcasata Theme
 Theme URI: https://example.com/webcasata-theme
 Author: Webcasata
 Author URI: https://example.com
-Description: A secure, lightweight and flexible starter theme for brochure sites, blogs and WooCommerce stores. Customizer global settings, three widget areas, SCSS sources shipped beside compiled CSS, and conditional WooCommerce support.
-Version: 1.0.0
+Description: A secure, lightweight and flexible starter theme for brochure sites, blogs and WooCommerce stores. Customizer global settings, three widget areas, custom block styles and patterns, SCSS sources shipped beside compiled CSS, and conditional WooCommerce support.
+Version: 1.0.1
 Requires at least: 5.9
-Tested up to: 6.6
+Tested up to: 7.1
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: webcasata
-Tags: custom-colors, custom-logo, custom-menu, featured-images, translation-ready, threaded-comments, blog, e-commerce, wide-blocks
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: webcasata-theme
+Tags: blog, e-commerce, one-column, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, block-patterns, theme-options
+
+Webcasata Theme, Copyright 2026 Webcasata
+Webcasata Theme is distributed under the terms of the GNU GPL v2 or later.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 */
 
 /*

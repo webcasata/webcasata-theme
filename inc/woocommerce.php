@@ -86,7 +86,7 @@ function webcasata_woocommerce_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'webcasata_woocommerce',
 		array(
-			'title' => __( 'WooCommerce', 'webcasata' ),
+			'title' => __( 'WooCommerce', 'webcasata-theme' ),
 			'panel' => 'webcasata_global',
 		)
 	);
@@ -102,7 +102,7 @@ function webcasata_woocommerce_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'webcasata_woo_columns',
 		array(
-			'label'       => __( 'Shop Columns', 'webcasata' ),
+			'label'       => __( 'Shop Columns', 'webcasata-theme' ),
 			'section'     => 'webcasata_woocommerce',
 			'type'        => 'number',
 			'input_attrs' => array(
@@ -124,7 +124,7 @@ function webcasata_woocommerce_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'webcasata_woo_products_per_page',
 		array(
-			'label'       => __( 'Products Per Page', 'webcasata' ),
+			'label'       => __( 'Products Per Page', 'webcasata-theme' ),
 			'section'     => 'webcasata_woocommerce',
 			'type'        => 'number',
 			'input_attrs' => array(

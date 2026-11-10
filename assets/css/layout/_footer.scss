@@ -10,6 +10,17 @@
 	color: inherit;
 }
 
+// Headings use the secondary color globally, which disappears on the dark footer.
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6,
+.site-footer .widget-title {
+	color: inherit;
+}
+
 .footer-widgets {
 	padding-block: 2.5rem;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);

@@ -25,16 +25,16 @@ defined( 'ABSPATH' ) || exit;
 function webcasata_widget_areas() {
 	$areas = array(
 		'header-widgets'  => array(
-			'name'        => __( 'Header Widgets', 'webcasata' ),
-			'description' => __( 'Optional widgets shown inside the header.', 'webcasata' ),
+			'name'        => __( 'Header Widgets', 'webcasata-theme' ),
+			'description' => __( 'Optional widgets shown inside the header.', 'webcasata-theme' ),
 		),
 		'footer-widgets'  => array(
-			'name'        => __( 'Footer Widgets', 'webcasata' ),
-			'description' => __( 'Widget columns shown above the footer credits.', 'webcasata' ),
+			'name'        => __( 'Footer Widgets', 'webcasata-theme' ),
+			'description' => __( 'Widget columns shown above the footer credits.', 'webcasata-theme' ),
 		),
 		'content-widgets' => array(
-			'name'        => __( 'Content Widgets', 'webcasata' ),
-			'description' => __( 'Widgets shown above the content area.', 'webcasata' ),
+			'name'        => __( 'Content Widgets', 'webcasata-theme' ),
+			'description' => __( 'Widgets shown above the content area.', 'webcasata-theme' ),
 		),
 	);
 

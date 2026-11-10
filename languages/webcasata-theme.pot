@@ -1,0 +1,595 @@
+# Copyright (C) 2026 Webcasata
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Webcasata Theme 1.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/webcasata-theme\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-10T15:05:52+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: webcasata-theme\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Webcasata Theme"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://example.com/webcasata-theme"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "A secure, lightweight and flexible starter theme for brochure sites, blogs and WooCommerce stores. Customizer global settings, three widget areas, custom block styles and patterns, SCSS sources shipped beside compiled CSS, and conditional WooCommerce support."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+#: inc/block-editor.php:61
+msgid "Webcasata"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://example.com"
+msgstr ""
+
+#: 404.php:16
+msgid "Oops! That page can not be found."
+msgstr ""
+
+#: 404.php:20
+msgid "It looks like nothing was found at this location. Try a search."
+msgstr ""
+
+#: 404.php:27
+#: template-parts/content/content-page.php:23
+#: template-parts/content/content.php:24
+msgid "Pages:"
+msgstr ""
+
+#. translators: %s: comment count.
+#: comments.php:22
+msgid "%s response"
+msgid_plural "%s responses"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:48
+msgid "Comments are closed."
+msgstr ""
+
+#: header.php:21
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:30
+msgid "Primary menu"
+msgstr ""
+
+#: header.php:33
+msgid "Menu"
+msgstr ""
+
+#: inc/block-editor.php:24
+msgid "Card"
+msgstr ""
+
+#: inc/block-editor.php:28
+msgid "Rounded with shadow"
+msgstr ""
+
+#: inc/block-editor.php:32
+msgid "Checklist"
+msgstr ""
+
+#: inc/block-editor.php:36
+msgid "Accent border"
+msgstr ""
+
+#: inc/block-editor.php:40
+msgid "Short accent"
+msgstr ""
+
+#: inc/block-editor.php:68
+msgid "Call to action"
+msgstr ""
+
+#: inc/block-editor.php:69
+msgid "A centered heading, short text and a button on a tinted background."
+msgstr ""
+
+#: inc/block-editor.php:73
+msgid "Ready to get started?"
+msgstr ""
+
+#: inc/block-editor.php:77
+msgid "Tell visitors what you offer in one or two short sentences, then point them to the next step."
+msgstr ""
+
+#: inc/block-editor.php:82
+msgid "Contact us"
+msgstr ""
+
+#: inc/block-editor.php:106
+msgid "Three feature cards"
+msgstr ""
+
+#: inc/block-editor.php:107
+msgid "Three columns of short feature descriptions in card style."
+msgstr ""
+
+#: inc/block-editor.php:111
+msgid "Why choose us"
+msgstr ""
+
+#: inc/block-editor.php:116
+msgid "Fast"
+msgstr ""
+
+#: inc/block-editor.php:116
+msgid "A lightweight theme with no bundled frameworks keeps pages quick to load."
+msgstr ""
+
+#: inc/block-editor.php:117
+msgid "Flexible"
+msgstr ""
+
+#: inc/block-editor.php:117
+msgid "Set colors, fonts, buttons and layout globally from the Customizer."
+msgstr ""
+
+#: inc/block-editor.php:118
+msgid "Secure"
+msgstr ""
+
+#: inc/block-editor.php:118
+msgid "Every setting is sanitized and every output is escaped."
+msgstr ""
+
+#: inc/breadcrumbs.php:23
+msgid "Home"
+msgstr ""
+
+#: inc/breadcrumbs.php:52
+msgid "Search results"
+msgstr ""
+
+#: inc/breadcrumbs.php:54
+msgid "Not found"
+msgstr ""
+
+#: inc/breadcrumbs.php:65
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/customizer-import-export.php:37
+#: inc/customizer-import-export.php:38
+msgid "Webcasata Import/Export"
+msgstr ""
+
+#: inc/customizer-import-export.php:72
+msgid "You are not allowed to import settings."
+msgstr ""
+
+#: inc/customizer-import-export.php:119
+msgid "Webcasata Import / Export"
+msgstr ""
+
+#: inc/customizer-import-export.php:122
+msgid "Settings imported."
+msgstr ""
+
+#: inc/customizer-import-export.php:124
+msgid "The provided JSON was invalid."
+msgstr ""
+
+#: inc/customizer-import-export.php:127
+msgid "Export"
+msgstr ""
+
+#: inc/customizer-import-export.php:128
+msgid "Copy these settings and keep them safe, or paste them into another install."
+msgstr ""
+
+#: inc/customizer-import-export.php:131
+msgid "Import"
+msgstr ""
+
+#: inc/customizer-import-export.php:132
+msgid "Paste exported settings below and save."
+msgstr ""
+
+#: inc/customizer-import-export.php:138
+msgid "Import Settings"
+msgstr ""
+
+#: inc/customizer.php:65
+msgid "System Default"
+msgstr ""
+
+#: inc/customizer.php:213
+msgid "Webcasata Global Settings"
+msgstr ""
+
+#: inc/customizer.php:214
+msgid "Global layout, colors, typography and feature options."
+msgstr ""
+
+#: inc/customizer.php:246
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer.php:260
+msgid "Container Type"
+msgstr ""
+
+#: inc/customizer.php:264
+msgid "Boxed"
+msgstr ""
+
+#: inc/customizer.php:265
+msgid "Full Width"
+msgstr ""
+
+#: inc/customizer.php:280
+msgid "Container Width (px)"
+msgstr ""
+
+#: inc/customizer.php:296
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer.php:302
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer.php:303
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/customizer.php:304
+msgid "Tertiary Color"
+msgstr ""
+
+#: inc/customizer.php:305
+msgid "Body Text"
+msgstr ""
+
+#: inc/customizer.php:306
+msgid "Link Color"
+msgstr ""
+
+#: inc/customizer.php:307
+msgid "Site Background"
+msgstr ""
+
+#: inc/customizer.php:308
+msgid "Header Background"
+msgstr ""
+
+#: inc/customizer.php:309
+msgid "Footer Background"
+msgstr ""
+
+#: inc/customizer.php:310
+msgid "Footer Text"
+msgstr ""
+
+#: inc/customizer.php:338
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer.php:349
+msgid "Body Font Family"
+msgstr ""
+
+#: inc/customizer.php:350
+msgid "Heading Font Family"
+msgstr ""
+
+#: inc/customizer.php:379
+msgid "Base Font Size (px)"
+msgstr ""
+
+#: inc/customizer.php:400
+msgid "Line Height"
+msgstr ""
+
+#: inc/customizer.php:421
+msgid "Heading Weight"
+msgstr ""
+
+#: inc/customizer.php:439
+msgid "Header"
+msgstr ""
+
+#: inc/customizer.php:453
+msgid "Header Layout"
+msgstr ""
+
+#: inc/customizer.php:457
+msgid "Logo Left"
+msgstr ""
+
+#: inc/customizer.php:458
+msgid "Logo Center"
+msgstr ""
+
+#: inc/customizer.php:468
+msgid "Buttons"
+msgstr ""
+
+#: inc/customizer.php:475
+msgid "Button Radius (px)"
+msgstr ""
+
+#: inc/customizer.php:476
+msgid "Horizontal Padding (px)"
+msgstr ""
+
+#: inc/customizer.php:477
+msgid "Vertical Padding (px)"
+msgstr ""
+
+#: inc/customizer.php:506
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer.php:520
+msgid "Footer Widget Columns"
+msgstr ""
+
+#: inc/customizer.php:541
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/customizer.php:552
+msgid "Features"
+msgstr ""
+
+#: inc/customizer.php:553
+msgid "Enable only what you need. Disabled features load no code."
+msgstr ""
+
+#: inc/customizer.php:587
+msgid "Excerpt Length (words)"
+msgstr ""
+
+#: inc/customizer.php:611
+#: inc/features.php:55
+msgid "Custom CSS"
+msgstr ""
+
+#: inc/customizer.php:631
+#: inc/features.php:61
+msgid "Custom JavaScript"
+msgstr ""
+
+#: inc/customizer.php:646
+msgid "Login Screen"
+msgstr ""
+
+#: inc/customizer.php:667
+msgid "Login Logo"
+msgstr ""
+
+#: inc/features.php:19
+msgid "Header Top Bar"
+msgstr ""
+
+#: inc/features.php:20
+msgid "Show a slim top bar above the header."
+msgstr ""
+
+#: inc/features.php:25
+msgid "Sticky Header"
+msgstr ""
+
+#: inc/features.php:26
+msgid "Keep the header visible while scrolling."
+msgstr ""
+
+#: inc/features.php:31
+msgid "Scroll To Top Button"
+msgstr ""
+
+#: inc/features.php:32
+msgid "Show an accessible back-to-top button."
+msgstr ""
+
+#: inc/features.php:37
+msgid "Breadcrumbs"
+msgstr ""
+
+#: inc/features.php:38
+msgid "Show breadcrumb navigation on inner pages."
+msgstr ""
+
+#: inc/features.php:43
+msgid "Featured Images"
+msgstr ""
+
+#: inc/features.php:44
+msgid "Display featured images on posts and cards."
+msgstr ""
+
+#: inc/features.php:49
+msgid "Post Excerpts"
+msgstr ""
+
+#: inc/features.php:50
+msgid "Use trimmed excerpts with a read more link on archives."
+msgstr ""
+
+#: inc/features.php:56
+msgid "Print your own CSS in the document head."
+msgstr ""
+
+#: inc/features.php:62
+msgid "Print your own JavaScript before the closing body tag."
+msgstr ""
+
+#: inc/features.php:67
+msgid "Login Screen Branding"
+msgstr ""
+
+#: inc/features.php:68
+msgid "Brand the WordPress login screen with your logo and colors."
+msgstr ""
+
+#: inc/features.php:73
+msgid "Maintenance Mode"
+msgstr ""
+
+#: inc/features.php:74
+msgid "Show a maintenance page to logged out visitors."
+msgstr ""
+
+#: inc/features.php:79
+msgid "Block Editor (Gutenberg)"
+msgstr ""
+
+#: inc/features.php:80
+msgid "Edit posts and pages with the block editor. Turn off to use the classic editor."
+msgstr ""
+
+#: inc/features.php:86
+msgid "Block-based Widgets (Modern Layout)"
+msgstr ""
+
+#: inc/features.php:87
+msgid "Use the modern block-based Widgets screen. Leave off to keep the classic (previous) widget layout."
+msgstr ""
+
+#: inc/features.php:356
+msgid "Maintenance"
+msgstr ""
+
+#: inc/setup.php:67
+msgid "Primary Menu"
+msgstr ""
+
+#: inc/setup.php:68
+msgid "Footer Menu"
+msgstr ""
+
+#: inc/setup.php:69
+msgid "Top Bar Menu"
+msgstr ""
+
+#. translators: %s: post title.
+#. translators: %s: page title.
+#: inc/template-tags.php:96
+#: template-parts/content/content-page.php:36
+msgid "Edit %s"
+msgstr ""
+
+#: inc/template-tags.php:111
+msgid "Previous"
+msgstr ""
+
+#: inc/template-tags.php:112
+msgid "Next"
+msgstr ""
+
+#: inc/template-tags.php:162
+msgid "Read more"
+msgstr ""
+
+#: inc/widgets.php:28
+msgid "Header Widgets"
+msgstr ""
+
+#: inc/widgets.php:29
+msgid "Optional widgets shown inside the header."
+msgstr ""
+
+#: inc/widgets.php:32
+msgid "Footer Widgets"
+msgstr ""
+
+#: inc/widgets.php:33
+msgid "Widget columns shown above the footer credits."
+msgstr ""
+
+#: inc/widgets.php:36
+msgid "Content Widgets"
+msgstr ""
+
+#: inc/widgets.php:37
+msgid "Widgets shown above the content area."
+msgstr ""
+
+#: inc/woocommerce.php:89
+msgid "WooCommerce"
+msgstr ""
+
+#: inc/woocommerce.php:105
+msgid "Shop Columns"
+msgstr ""
+
+#: inc/woocommerce.php:127
+msgid "Products Per Page"
+msgstr ""
+
+#. translators: %s: search query.
+#: search.php:21
+msgid "Search results for: %s"
+msgstr ""
+
+#: searchform.php:14
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:20
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:25
+msgid "Search"
+msgstr ""
+
+#. translators: %s: post title.
+#: template-parts/card/post-card.php:28
+msgid "Continue reading %s"
+msgstr ""
+
+#: template-parts/content/content-none.php:12
+msgid "Nothing here"
+msgstr ""
+
+#. translators: %s: new post URL.
+#: template-parts/content/content-none.php:21
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content/content-none.php:27
+msgid "Sorry, but nothing matched your search terms. Please try again."
+msgstr ""
+
+#: template-parts/content/content-none.php:30
+msgid "It seems we can not find what you are looking for. Perhaps searching will help."
+msgstr ""
+
+#: template-parts/features/maintenance.php:22
+msgid "We are performing scheduled maintenance. Please check back soon."
+msgstr ""
+
+#: template-parts/features/scroll-to-top.php:10
+msgid "Scroll to top"
+msgstr ""
+
+#: template-parts/footer/site-info.php:29
+msgid "Footer menu"
+msgstr ""
+
+#: template-parts/header/top-bar.php:13
+msgid "Top bar menu"
+msgstr ""

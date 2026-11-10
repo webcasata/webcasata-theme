@@ -19,7 +19,7 @@ if ( post_password_required() ) {
 			$count = get_comments_number();
 			printf(
 				/* translators: %s: comment count. */
-				esc_html( _n( '%s response', '%s responses', $count, 'webcasata' ) ),
+				esc_html( _n( '%s response', '%s responses', $count, 'webcasata-theme' ) ),
 				esc_html( number_format_i18n( $count ) )
 			);
 			?>
@@ -45,7 +45,7 @@ if ( post_password_required() ) {
 
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'webcasata' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'webcasata-theme' ); ?></p>
 			<?php
 		endif;
 	endif;

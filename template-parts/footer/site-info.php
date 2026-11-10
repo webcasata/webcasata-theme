@@ -26,7 +26,7 @@ $webcasata_footer_text = webcasata_get_option( 'footer_text', '' );
 		</div>
 
 		<?php if ( has_nav_menu( 'footer' ) ) : ?>
-			<nav class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer menu', 'webcasata' ); ?>">
+			<nav class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer menu', 'webcasata-theme' ); ?>">
 				<?php
 				wp_nav_menu(
 					array(

@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'webcasata' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'webcasata-theme' ),
 				'after'  => '</div>',
 			)
 		);

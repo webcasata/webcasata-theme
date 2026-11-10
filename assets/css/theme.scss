@@ -5,6 +5,7 @@
 @use "base/reset";
 @use "base/typography";
 @use "base/accessibility";
+@use "base/wp-core";
 @use "layout/container";
 @use "layout/header";
 @use "layout/footer";
@@ -18,3 +19,4 @@
 @use "components/scroll-to-top";
 @use "components/top-bar";
 @use "components/maintenance";
+@use "components/block-styles";

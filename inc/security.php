@@ -76,29 +76,80 @@ function webcasata_sanitize_positive_int( $value ) {
  */
 function webcasata_sanitize_css( $value ) {
 	$value = wp_strip_all_tags( (string) $value );
-	$value = str_ireplace( array( '</style', '<style', '<?' ), '', $value );
+	// CSS never needs a "<" character; removing it rules out any closing
+	// </style> or other markup surviving into the inline style tag.
+	$value = str_replace( '<', '', $value );
 	return trim( $value );
 }
 
 /**
- * Sanitize custom JS. Only users with unfiltered_html may store raw markup.
+ * Sanitize custom JS.
  *
- * @param string $value Raw JS.
+ * Only users with the unfiltered_html capability (administrators on single
+ * site, super admins on multisite) may store JavaScript. For anyone else the
+ * previously saved value is kept unchanged, so they cannot inject scripts.
+ *
+ * @param string                    $value   Raw JS.
+ * @param WP_Customize_Setting|null $setting Setting object, when called by the Customizer.
  * @return string
  */
-function webcasata_sanitize_js( $value ) {
-	$value = (string) $value;
+function webcasata_sanitize_js( $value, $setting = null ) {
 	if ( current_user_can( 'unfiltered_html' ) ) {
-		return trim( $value );
+		return trim( (string) $value );
 	}
-	return webcasata_sanitize_css( $value );
+	return (string) webcasata_get_option( 'custom_js', '' );
 }
 
 /**
- * Basic hardening: hide the WordPress generator version.
+ * Sanitize a single imported theme mod using the same rules the Customizer
+ * applies, so imported JSON can never bypass sanitization.
+ *
+ * @param string $key   Full theme mod name (with webcasata_ prefix).
+ * @param mixed  $value Raw imported value.
+ * @return mixed|null Sanitized value, or null to skip the key.
  */
-function webcasata_remove_generator() {
-	remove_action( 'wp_head', 'wp_generator' );
-	add_filter( 'the_generator', '__return_empty_string' );
+function webcasata_sanitize_import_value( $key, $value ) {
+	if ( ! is_scalar( $value ) ) {
+		return null;
+	}
+
+	if ( 0 === strpos( $key, 'webcasata_feature_' ) ) {
+		return webcasata_sanitize_checkbox( $value );
+	}
+
+	$name = substr( $key, strlen( 'webcasata_' ) );
+
+	if ( 0 === strpos( $name, 'color_' ) ) {
+		$color = sanitize_hex_color( $value );
+		return $color ? $color : null;
+	}
+
+	$choices = array(
+		'container_type' => array( 'boxed', 'full' ),
+		'header_layout'  => array( 'logo-left', 'logo-center' ),
+		'heading_weight' => array( '400', '500', '600', '700', '800' ),
+		'font_body'      => array_keys( webcasata_font_choices() ),
+		'font_heading'   => array_keys( webcasata_font_choices() ),
+	);
+	if ( isset( $choices[ $name ] ) ) {
+		$value = sanitize_key( $value );
+		return in_array( $value, $choices[ $name ], true ) ? $value : null;
+	}
+
+	switch ( $name ) {
+		case 'btn_radius':
+			return absint( $value );
+		case 'line_height':
+			return webcasata_sanitize_float( $value );
+		case 'footer_text':
+			return wp_kses_post( $value );
+		case 'custom_css':
+			return webcasata_sanitize_css( $value );
+		case 'custom_js':
+			return current_user_can( 'unfiltered_html' ) ? trim( (string) $value ) : null;
+		case 'login_logo':
+			return esc_url_raw( $value );
+		default:
+			return webcasata_sanitize_positive_int( $value );
+	}
 }
-add_action( 'init', 'webcasata_remove_generator' );

@@ -18,7 +18,7 @@ get_header();
 				<?php
 				printf(
 					/* translators: %s: search query. */
-					esc_html__( 'Search results for: %s', 'webcasata' ),
+					esc_html__( 'Search results for: %s', 'webcasata-theme' ),
 					'<span>' . esc_html( get_search_query() ) . '</span>'
 				);
 				?>

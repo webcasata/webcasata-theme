@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'webcasata' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'webcasata-theme' ); ?></a>
 
 	<?php do_action( 'webcasata_before_header' ); ?>
 
@@ -27,10 +27,10 @@ defined( 'ABSPATH' ) || exit;
 			<?php get_template_part( 'template-parts/header/site-branding' ); ?>
 
 			<?php if ( has_nav_menu( 'primary' ) ) : ?>
-				<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'webcasata' ); ?>">
+				<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'webcasata-theme' ); ?>">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 						<span class="menu-toggle-box" aria-hidden="true"></span>
-						<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'webcasata' ); ?></span>
+						<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'webcasata-theme' ); ?></span>
 					</button>
 					<?php
 					wp_nav_menu(
@@ -45,6 +45,12 @@ defined( 'ABSPATH' ) || exit;
 				</nav>
 			<?php endif; ?>
 		</div>
+
+		<?php if ( has_header_image() ) : ?>
+			<div class="header-image">
+				<?php the_header_image_tag( array( 'alt' => '' ) ); ?>
+			</div>
+		<?php endif; ?>
 
 		<?php if ( webcasata_has_widgets( 'header-widgets' ) ) : ?>
 			<div class="header-widgets wc-container">

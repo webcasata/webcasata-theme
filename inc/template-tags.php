@@ -93,8 +93,8 @@ function webcasata_entry_footer() {
 	edit_post_link(
 		sprintf(
 			/* translators: %s: post title. */
-			esc_html__( 'Edit %s', 'webcasata' ),
-			'<span class="screen-reader-text">' . get_the_title() . '</span>'
+			esc_html__( 'Edit %s', 'webcasata-theme' ),
+			'<span class="screen-reader-text">' . wp_kses_post( get_the_title() ) . '</span>'
 		),
 		'<span class="edit-link">',
 		'</span>'
@@ -108,8 +108,8 @@ function webcasata_pagination() {
 	the_posts_pagination(
 		array(
 			'mid_size'  => 1,
-			'prev_text' => esc_html__( 'Previous', 'webcasata' ),
-			'next_text' => esc_html__( 'Next', 'webcasata' ),
+			'prev_text' => esc_html__( 'Previous', 'webcasata-theme' ),
+			'next_text' => esc_html__( 'Next', 'webcasata-theme' ),
 			'class'     => 'pagination',
 		)
 	);
@@ -159,6 +159,6 @@ function webcasata_read_more_link() {
 	printf(
 		'<a class="more-link" href="%1$s">%2$s</a>',
 		esc_url( get_permalink() ),
-		esc_html__( 'Read more', 'webcasata' )
+		esc_html__( 'Read more', 'webcasata-theme' )
 	);
 }

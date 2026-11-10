@@ -11,8 +11,7 @@ defined( 'ABSPATH' ) || exit;
  * Register theme features.
  */
 function webcasata_setup() {
-	load_theme_textdomain( 'webcasata', WEBCASATA_DIR . 'languages' );
-
+	load_theme_textdomain( 'webcasata-theme', WEBCASATA_DIR . 'languages' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -35,11 +34,39 @@ function webcasata_setup() {
 		)
 	);
 
+	add_theme_support(
+		'custom-background',
+		apply_filters(
+			'webcasata_custom_background_args',
+			array(
+				'default-color' => 'ffffff',
+				'default-image' => '',
+			)
+		)
+	);
+
+	add_theme_support(
+		'custom-header',
+		apply_filters(
+			'webcasata_custom_header_args',
+			array(
+				'default-image'    => '',
+				'width'            => 1920,
+				'height'           => 480,
+				'flex-width'       => true,
+				'flex-height'      => true,
+				'header-text'      => false,
+				'video'            => false,
+				'wp-head-callback' => '',
+			)
+		)
+	);
+
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary Menu', 'webcasata' ),
-			'footer'  => __( 'Footer Menu', 'webcasata' ),
-			'top'     => __( 'Top Bar Menu', 'webcasata' ),
+			'primary' => __( 'Primary Menu', 'webcasata-theme' ),
+			'footer'  => __( 'Footer Menu', 'webcasata-theme' ),
+			'top'     => __( 'Top Bar Menu', 'webcasata-theme' ),
 		)
 	);
 

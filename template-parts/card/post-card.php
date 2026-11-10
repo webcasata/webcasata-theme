@@ -25,8 +25,8 @@ defined( 'ABSPATH' ) || exit;
 				the_content(
 					sprintf(
 						/* translators: %s: post title. */
-						esc_html__( 'Continue reading %s', 'webcasata' ),
-						'<span class="screen-reader-text">' . get_the_title() . '</span>'
+						esc_html__( 'Continue reading %s', 'webcasata-theme' ),
+						'<span class="screen-reader-text">' . wp_kses_post( get_the_title() ) . '</span>'
 					)
 				);
 			}

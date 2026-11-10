@@ -62,7 +62,7 @@ function webcasata_default( $key ) {
 function webcasata_font_choices() {
 	return array(
 		'system'          => array(
-			'label'  => __( 'System Default', 'webcasata' ),
+			'label'  => __( 'System Default', 'webcasata-theme' ),
 			'stack'  => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
 			'google' => '',
 		),
@@ -210,14 +210,31 @@ function webcasata_customize_register( $wp_customize ) {
 	$wp_customize->add_panel(
 		'webcasata_global',
 		array(
-			'title'       => __( 'Webcasata Global Settings', 'webcasata' ),
-			'description' => __( 'Global layout, colors, typography and feature options.', 'webcasata' ),
+			'title'       => __( 'Webcasata Global Settings', 'webcasata-theme' ),
+			'description' => __( 'Global layout, colors, typography and feature options.', 'webcasata-theme' ),
 			'priority'    => 10,
 		)
 	);
 
+	/*
+	 * Helper: register a setting plus its control. A sanitize callback is
+	 * mandatory; settings without one are not registered at all.
+	 */
 	$add = static function ( $id, $args ) use ( $wp_customize ) {
-		$wp_customize->add_setting( $id, $args['setting'] );
+		if ( empty( $args['setting']['sanitize_callback'] ) ) {
+			_doing_it_wrong( __FUNCTION__, esc_html( $id . ': a sanitize_callback is required.' ), '1.0.1' );
+			return;
+		}
+
+		$wp_customize->add_setting(
+			$id,
+			array(
+				'default'           => isset( $args['setting']['default'] ) ? $args['setting']['default'] : '',
+				'transport'         => isset( $args['setting']['transport'] ) ? $args['setting']['transport'] : 'refresh',
+				'sanitize_callback' => $args['setting']['sanitize_callback'],
+			)
+		);
+
 		$args['control']['settings'] = $id;
 		$wp_customize->add_control( $id, $args['control'] );
 	};
@@ -226,7 +243,7 @@ function webcasata_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'webcasata_layout',
 		array(
-			'title' => __( 'Layout', 'webcasata' ),
+			'title' => __( 'Layout', 'webcasata-theme' ),
 			'panel' => 'webcasata_global',
 		)
 	);
@@ -235,16 +252,17 @@ function webcasata_customize_register( $wp_customize ) {
 		'webcasata_container_type',
 		array(
 			'setting' => array(
-				'default'   => $d['container_type'],
-				'transport' => 'refresh',
+				'default'           => $d['container_type'],
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'webcasata_sanitize_select',
 			),
 			'control' => array(
-				'label'   => __( 'Container Type', 'webcasata' ),
+				'label'   => __( 'Container Type', 'webcasata-theme' ),
 				'section' => 'webcasata_layout',
 				'type'    => 'select',
 				'choices' => array(
-					'boxed' => __( 'Boxed', 'webcasata' ),
-					'full'  => __( 'Full Width', 'webcasata' ),
+					'boxed' => __( 'Boxed', 'webcasata-theme' ),
+					'full'  => __( 'Full Width', 'webcasata-theme' ),
 				),
 			),
 		)
@@ -259,7 +277,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'webcasata_sanitize_positive_int',
 			),
 			'control' => array(
-				'label'       => __( 'Container Width (px)', 'webcasata' ),
+				'label'       => __( 'Container Width (px)', 'webcasata-theme' ),
 				'section'     => 'webcasata_layout',
 				'type'        => 'number',
 				'input_attrs' => array(
@@ -275,21 +293,21 @@ function webcasata_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'webcasata_colors',
 		array(
-			'title' => __( 'Colors', 'webcasata' ),
+			'title' => __( 'Colors', 'webcasata-theme' ),
 			'panel' => 'webcasata_global',
 		)
 	);
 
 	$colors = array(
-		'color_primary'     => __( 'Primary Color', 'webcasata' ),
-		'color_secondary'   => __( 'Secondary Color', 'webcasata' ),
-		'color_tertiary'    => __( 'Tertiary Color', 'webcasata' ),
-		'color_text'        => __( 'Body Text', 'webcasata' ),
-		'color_link'        => __( 'Link Color', 'webcasata' ),
-		'color_bg'          => __( 'Site Background', 'webcasata' ),
-		'color_header_bg'   => __( 'Header Background', 'webcasata' ),
-		'color_footer_bg'   => __( 'Footer Background', 'webcasata' ),
-		'color_footer_text' => __( 'Footer Text', 'webcasata' ),
+		'color_primary'     => __( 'Primary Color', 'webcasata-theme' ),
+		'color_secondary'   => __( 'Secondary Color', 'webcasata-theme' ),
+		'color_tertiary'    => __( 'Tertiary Color', 'webcasata-theme' ),
+		'color_text'        => __( 'Body Text', 'webcasata-theme' ),
+		'color_link'        => __( 'Link Color', 'webcasata-theme' ),
+		'color_bg'          => __( 'Site Background', 'webcasata-theme' ),
+		'color_header_bg'   => __( 'Header Background', 'webcasata-theme' ),
+		'color_footer_bg'   => __( 'Footer Background', 'webcasata-theme' ),
+		'color_footer_text' => __( 'Footer Text', 'webcasata-theme' ),
 	);
 
 	foreach ( $colors as $key => $label ) {
@@ -317,7 +335,7 @@ function webcasata_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'webcasata_typography',
 		array(
-			'title' => __( 'Typography', 'webcasata' ),
+			'title' => __( 'Typography', 'webcasata-theme' ),
 			'panel' => 'webcasata_global',
 		)
 	);
@@ -328,8 +346,8 @@ function webcasata_customize_register( $wp_customize ) {
 	}
 
 	foreach ( array(
-		'font_body'    => __( 'Body Font Family', 'webcasata' ),
-		'font_heading' => __( 'Heading Font Family', 'webcasata' ),
+		'font_body'    => __( 'Body Font Family', 'webcasata-theme' ),
+		'font_heading' => __( 'Heading Font Family', 'webcasata-theme' ),
 	) as $key => $label ) {
 		$add(
 			'webcasata_' . $key,
@@ -358,7 +376,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'webcasata_sanitize_positive_int',
 			),
 			'control' => array(
-				'label'       => __( 'Base Font Size (px)', 'webcasata' ),
+				'label'       => __( 'Base Font Size (px)', 'webcasata-theme' ),
 				'section'     => 'webcasata_typography',
 				'type'        => 'number',
 				'input_attrs' => array(
@@ -379,7 +397,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'webcasata_sanitize_float',
 			),
 			'control' => array(
-				'label'       => __( 'Line Height', 'webcasata' ),
+				'label'       => __( 'Line Height', 'webcasata-theme' ),
 				'section'     => 'webcasata_typography',
 				'type'        => 'number',
 				'input_attrs' => array(
@@ -400,7 +418,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'webcasata_sanitize_select',
 			),
 			'control' => array(
-				'label'   => __( 'Heading Weight', 'webcasata' ),
+				'label'   => __( 'Heading Weight', 'webcasata-theme' ),
 				'section' => 'webcasata_typography',
 				'type'    => 'select',
 				'choices' => array(
@@ -418,7 +436,7 @@ function webcasata_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'webcasata_header',
 		array(
-			'title' => __( 'Header', 'webcasata' ),
+			'title' => __( 'Header', 'webcasata-theme' ),
 			'panel' => 'webcasata_global',
 		)
 	);
@@ -432,12 +450,12 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'webcasata_sanitize_select',
 			),
 			'control' => array(
-				'label'   => __( 'Header Layout', 'webcasata' ),
+				'label'   => __( 'Header Layout', 'webcasata-theme' ),
 				'section' => 'webcasata_header',
 				'type'    => 'select',
 				'choices' => array(
-					'logo-left'   => __( 'Logo Left', 'webcasata' ),
-					'logo-center' => __( 'Logo Center', 'webcasata' ),
+					'logo-left'   => __( 'Logo Left', 'webcasata-theme' ),
+					'logo-center' => __( 'Logo Center', 'webcasata-theme' ),
 				),
 			),
 		)
@@ -447,15 +465,16 @@ function webcasata_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'webcasata_buttons',
 		array(
-			'title' => __( 'Buttons', 'webcasata' ),
+			'title' => __( 'Buttons', 'webcasata-theme' ),
 			'panel' => 'webcasata_global',
 		)
 	);
 
 	$buttons = array(
-		'btn_radius'    => array( __( 'Button Radius (px)', 'webcasata' ), 0, 50, 1 ),
-		'btn_padding_x' => array( __( 'Horizontal Padding (px)', 'webcasata' ), 4, 60, 1 ),
-		'btn_padding_y' => array( __( 'Vertical Padding (px)', 'webcasata' ), 2, 40, 1 ),
+		// Radius may be 0 (square buttons), so it uses absint instead of positive int.
+		'btn_radius'    => array( __( 'Button Radius (px)', 'webcasata-theme' ), 0, 50, 1, 'absint' ),
+		'btn_padding_x' => array( __( 'Horizontal Padding (px)', 'webcasata-theme' ), 4, 60, 1, 'webcasata_sanitize_positive_int' ),
+		'btn_padding_y' => array( __( 'Vertical Padding (px)', 'webcasata-theme' ), 2, 40, 1, 'webcasata_sanitize_positive_int' ),
 	);
 	foreach ( $buttons as $key => $meta ) {
 		$add(
@@ -464,7 +483,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'setting' => array(
 					'default'           => $d[ $key ],
 					'transport'         => 'postMessage',
-					'sanitize_callback' => 'webcasata_sanitize_positive_int',
+					'sanitize_callback' => $meta[4],
 				),
 				'control' => array(
 					'label'       => $meta[0],
@@ -484,7 +503,7 @@ function webcasata_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'webcasata_footer',
 		array(
-			'title' => __( 'Footer', 'webcasata' ),
+			'title' => __( 'Footer', 'webcasata-theme' ),
 			'panel' => 'webcasata_global',
 		)
 	);
@@ -498,7 +517,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'webcasata_sanitize_positive_int',
 			),
 			'control' => array(
-				'label'       => __( 'Footer Widget Columns', 'webcasata' ),
+				'label'       => __( 'Footer Widget Columns', 'webcasata-theme' ),
 				'section'     => 'webcasata_footer',
 				'type'        => 'number',
 				'input_attrs' => array(
@@ -519,7 +538,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'wp_kses_post',
 			),
 			'control' => array(
-				'label'   => __( 'Copyright Text', 'webcasata' ),
+				'label'   => __( 'Copyright Text', 'webcasata-theme' ),
 				'section' => 'webcasata_footer',
 				'type'    => 'textarea',
 			),
@@ -530,8 +549,8 @@ function webcasata_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'webcasata_features',
 		array(
-			'title'       => __( 'Features', 'webcasata' ),
-			'description' => __( 'Enable only what you need. Disabled features load no code.', 'webcasata' ),
+			'title'       => __( 'Features', 'webcasata-theme' ),
+			'description' => __( 'Enable only what you need. Disabled features load no code.', 'webcasata-theme' ),
 			'panel'       => 'webcasata_global',
 		)
 	);
@@ -565,7 +584,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'webcasata_sanitize_positive_int',
 			),
 			'control' => array(
-				'label'           => __( 'Excerpt Length (words)', 'webcasata' ),
+				'label'           => __( 'Excerpt Length (words)', 'webcasata-theme' ),
 				'section'         => 'webcasata_features',
 				'type'            => 'number',
 				'active_callback' => static function () {
@@ -589,7 +608,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'webcasata_sanitize_css',
 			),
 			'control' => array(
-				'label'           => __( 'Custom CSS', 'webcasata' ),
+				'label'           => __( 'Custom CSS', 'webcasata-theme' ),
 				'section'         => 'webcasata_features',
 				'type'            => 'textarea',
 				'active_callback' => static function () {
@@ -609,7 +628,7 @@ function webcasata_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'webcasata_sanitize_js',
 			),
 			'control' => array(
-				'label'           => __( 'Custom JavaScript', 'webcasata' ),
+				'label'           => __( 'Custom JavaScript', 'webcasata-theme' ),
 				'section'         => 'webcasata_features',
 				'type'            => 'textarea',
 				'active_callback' => static function () {
@@ -624,7 +643,7 @@ function webcasata_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'webcasata_login',
 		array(
-			'title'           => __( 'Login Screen', 'webcasata' ),
+			'title'           => __( 'Login Screen', 'webcasata-theme' ),
 			'panel'           => 'webcasata_global',
 			'active_callback' => static function () {
 				return webcasata_is_feature_enabled( 'login_branding' );
@@ -645,7 +664,7 @@ function webcasata_customize_register( $wp_customize ) {
 			$wp_customize,
 			'webcasata_login_logo',
 			array(
-				'label'   => __( 'Login Logo', 'webcasata' ),
+				'label'   => __( 'Login Logo', 'webcasata-theme' ),
 				'section' => 'webcasata_login',
 			)
 		)
@@ -666,3 +685,21 @@ function webcasata_customize_preview_js() {
 	);
 }
 add_action( 'customize_preview_init', 'webcasata_customize_preview_js' );
+
+/**
+ * Give the block editor the same CSS custom properties as the front end, so
+ * Customizer colors, fonts and sizes are reflected while editing.
+ *
+ * @param array $settings Block editor settings.
+ * @return array
+ */
+function webcasata_block_editor_vars( $settings ) {
+	if ( ! isset( $settings['styles'] ) || ! is_array( $settings['styles'] ) ) {
+		$settings['styles'] = array();
+	}
+
+	$settings['styles'][] = array( 'css' => webcasata_customizer_css() );
+
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', 'webcasata_block_editor_vars' );

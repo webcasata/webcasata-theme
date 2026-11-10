@@ -16,75 +16,75 @@ defined( 'ABSPATH' ) || exit;
 function webcasata_features() {
 	$features = array(
 		'top_bar'          => array(
-			'label'       => __( 'Header Top Bar', 'webcasata' ),
-			'description' => __( 'Show a slim top bar above the header.', 'webcasata' ),
+			'label'       => __( 'Header Top Bar', 'webcasata-theme' ),
+			'description' => __( 'Show a slim top bar above the header.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_boot_top_bar',
 		),
 		'sticky_header'    => array(
-			'label'       => __( 'Sticky Header', 'webcasata' ),
-			'description' => __( 'Keep the header visible while scrolling.', 'webcasata' ),
+			'label'       => __( 'Sticky Header', 'webcasata-theme' ),
+			'description' => __( 'Keep the header visible while scrolling.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_boot_sticky_header',
 		),
 		'scroll_to_top'    => array(
-			'label'       => __( 'Scroll To Top Button', 'webcasata' ),
-			'description' => __( 'Show an accessible back-to-top button.', 'webcasata' ),
+			'label'       => __( 'Scroll To Top Button', 'webcasata-theme' ),
+			'description' => __( 'Show an accessible back-to-top button.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_boot_scroll_to_top',
 		),
 		'breadcrumbs'      => array(
-			'label'       => __( 'Breadcrumbs', 'webcasata' ),
-			'description' => __( 'Show breadcrumb navigation on inner pages.', 'webcasata' ),
+			'label'       => __( 'Breadcrumbs', 'webcasata-theme' ),
+			'description' => __( 'Show breadcrumb navigation on inner pages.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_boot_breadcrumbs',
 		),
 		'featured_image'   => array(
-			'label'       => __( 'Featured Images', 'webcasata' ),
-			'description' => __( 'Display featured images on posts and cards.', 'webcasata' ),
+			'label'       => __( 'Featured Images', 'webcasata-theme' ),
+			'description' => __( 'Display featured images on posts and cards.', 'webcasata-theme' ),
 			'default'     => true,
 			'boot'        => '',
 		),
 		'blog_excerpt'     => array(
-			'label'       => __( 'Post Excerpts', 'webcasata' ),
-			'description' => __( 'Use trimmed excerpts with a read more link on archives.', 'webcasata' ),
+			'label'       => __( 'Post Excerpts', 'webcasata-theme' ),
+			'description' => __( 'Use trimmed excerpts with a read more link on archives.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_boot_blog_excerpt',
 		),
 		'custom_css'       => array(
-			'label'       => __( 'Custom CSS', 'webcasata' ),
-			'description' => __( 'Print your own CSS in the document head.', 'webcasata' ),
+			'label'       => __( 'Custom CSS', 'webcasata-theme' ),
+			'description' => __( 'Print your own CSS in the document head.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_boot_custom_css',
 		),
 		'custom_js'        => array(
-			'label'       => __( 'Custom JavaScript', 'webcasata' ),
-			'description' => __( 'Print your own JavaScript before the closing body tag.', 'webcasata' ),
+			'label'       => __( 'Custom JavaScript', 'webcasata-theme' ),
+			'description' => __( 'Print your own JavaScript before the closing body tag.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_boot_custom_js',
 		),
 		'login_branding'   => array(
-			'label'       => __( 'Login Screen Branding', 'webcasata' ),
-			'description' => __( 'Brand the WordPress login screen with your logo and colors.', 'webcasata' ),
+			'label'       => __( 'Login Screen Branding', 'webcasata-theme' ),
+			'description' => __( 'Brand the WordPress login screen with your logo and colors.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_boot_login_branding',
 		),
 		'maintenance_mode' => array(
-			'label'       => __( 'Maintenance Mode', 'webcasata' ),
-			'description' => __( 'Show a maintenance page to logged out visitors.', 'webcasata' ),
+			'label'       => __( 'Maintenance Mode', 'webcasata-theme' ),
+			'description' => __( 'Show a maintenance page to logged out visitors.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_boot_maintenance',
 		),
 		'block_editor'     => array(
-			'label'       => __( 'Block Editor (Gutenberg)', 'webcasata' ),
-			'description' => __( 'Edit posts and pages with the block editor. Turn off to use the classic editor.', 'webcasata' ),
+			'label'       => __( 'Block Editor (Gutenberg)', 'webcasata-theme' ),
+			'description' => __( 'Edit posts and pages with the block editor. Turn off to use the classic editor.', 'webcasata-theme' ),
 			'default'     => true,
 			'boot'        => '',
 			'boot_off'    => 'webcasata_feature_disable_block_editor',
 		),
 		'modern_widgets'   => array(
-			'label'       => __( 'Block-based Widgets (Modern Layout)', 'webcasata' ),
-			'description' => __( 'Use the modern block-based Widgets screen. Leave off to keep the classic (previous) widget layout.', 'webcasata' ),
+			'label'       => __( 'Block-based Widgets (Modern Layout)', 'webcasata-theme' ),
+			'description' => __( 'Use the modern block-based Widgets screen. Leave off to keep the classic (previous) widget layout.', 'webcasata-theme' ),
 			'default'     => false,
 			'boot'        => 'webcasata_feature_enable_widgets_block_editor',
 			'boot_off'    => 'webcasata_feature_disable_widgets_block_editor',
@@ -338,8 +338,24 @@ function webcasata_maintenance_redirect() {
 	header( 'Retry-After: 3600' );
 	nocache_headers();
 
+	// The document title comes from core's title-tag support.
+	add_filter( 'document_title_parts', 'webcasata_maintenance_title_parts', 99 );
+
 	include WEBCASATA_DIR . 'template-parts/features/maintenance.php';
 	exit;
+}
+
+/**
+ * Title parts for the maintenance page: "Maintenance – Site Name".
+ *
+ * @param array $parts Document title parts.
+ * @return array
+ */
+function webcasata_maintenance_title_parts( $parts ) {
+	return array(
+		'title' => __( 'Maintenance', 'webcasata-theme' ),
+		'site'  => get_bloginfo( 'name', 'display' ),
+	);
 }
 
 /**

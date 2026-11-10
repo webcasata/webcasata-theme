@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'webcasata' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'webcasata-theme' ),
 				'after'  => '</div>',
 			)
 		);
@@ -33,8 +33,8 @@ defined( 'ABSPATH' ) || exit;
 			edit_post_link(
 				sprintf(
 					/* translators: %s: page title. */
-					esc_html__( 'Edit %s', 'webcasata' ),
-					'<span class="screen-reader-text">' . get_the_title() . '</span>'
+					esc_html__( 'Edit %s', 'webcasata-theme' ),
+					'<span class="screen-reader-text">' . wp_kses_post( get_the_title() ) . '</span>'
 				),
 				'<span class="edit-link">',
 				'</span>'

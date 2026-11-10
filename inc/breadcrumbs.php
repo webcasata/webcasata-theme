@@ -20,7 +20,7 @@ function webcasata_breadcrumbs() {
 	$items[] = sprintf(
 		'<a href="%1$s">%2$s</a>',
 		esc_url( home_url( '/' ) ),
-		esc_html__( 'Home', 'webcasata' )
+		esc_html__( 'Home', 'webcasata-theme' )
 	);
 
 	if ( is_singular() ) {
@@ -49,9 +49,9 @@ function webcasata_breadcrumbs() {
 	} elseif ( is_category() || is_tag() || is_tax() ) {
 		$items[] = '<span aria-current="page">' . esc_html( single_term_title( '', false ) ) . '</span>';
 	} elseif ( is_search() ) {
-		$items[] = '<span aria-current="page">' . esc_html__( 'Search results', 'webcasata' ) . '</span>';
+		$items[] = '<span aria-current="page">' . esc_html__( 'Search results', 'webcasata-theme' ) . '</span>';
 	} elseif ( is_404() ) {
-		$items[] = '<span aria-current="page">' . esc_html__( 'Not found', 'webcasata' ) . '</span>';
+		$items[] = '<span aria-current="page">' . esc_html__( 'Not found', 'webcasata-theme' ) . '</span>';
 	} elseif ( is_post_type_archive() ) {
 		$items[] = '<span aria-current="page">' . esc_html( post_type_archive_title( '', false ) ) . '</span>';
 	} elseif ( is_author() ) {
@@ -62,12 +62,13 @@ function webcasata_breadcrumbs() {
 
 	$separator = '<span class="breadcrumb-separator" aria-hidden="true">/</span>';
 
-	echo '<nav class="wc-breadcrumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'webcasata' ) . '">';
+	echo '<nav class="wc-breadcrumbs wc-container" aria-label="' . esc_attr__( 'Breadcrumb', 'webcasata-theme' ) . '">';
 	echo '<ol>';
-	foreach ( $items as $item ) {
-		echo '<li>' . $item . '</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	$last = count( $items ) - 1;
+	foreach ( $items as $index => $item ) {
+		// Items are escaped above; the separator is decorative (aria-hidden).
+		echo '<li>' . $item . ( $index < $last ? $separator : '' ) . '</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 	echo '</ol>';
-	echo '<span class="screen-reader-text">' . esc_html( wp_strip_all_tags( $separator ) ) . '</span>';
 	echo '</nav>';
 }
