@@ -1,0 +1,87 @@
+@use "../abstracts/mixins" as *;
+
+body {
+	font-family: var(--wc-font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif);
+	font-size: var(--wc-font-size-base, 16px);
+	line-height: var(--wc-line-height, 1.6);
+	color: var(--wc-color-text, #334155);
+	background-color: var(--wc-color-bg, #fff);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--wc-font-heading, inherit);
+	font-weight: var(--wc-heading-weight, 600);
+	line-height: 1.2;
+	margin: 0 0 0.5em;
+	color: var(--wc-color-secondary, #1e293b);
+}
+
+h1 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem); }
+h2 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
+h3 { font-size: 1.375rem; }
+h4 { font-size: 1.125rem; }
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre {
+	margin: 0 0 1.25rem;
+}
+
+a {
+	color: var(--wc-color-link, #2563eb);
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+
+blockquote {
+	margin-left: 0;
+	padding-left: 1.25rem;
+	border-left: 4px solid var(--wc-color-primary, #2563eb);
+	color: var(--wc-color-secondary, #1e293b);
+}
+
+code,
+kbd,
+samp {
+	font-family: SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 0.9em;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid rgba(15, 23, 42, 0.1);
+	margin: 2rem 0;
+}
+
+.alignleft {
+	float: left;
+	margin: 0 1.5rem 1rem 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 1rem 1.5rem;
+}
+
+.aligncenter {
+	display: block;
+	margin-inline: auto;
+}
+
+.wp-caption,
+.wp-caption-text {
+	font-size: 0.875rem;
+	color: var(--wc-color-text, #334155);
+}

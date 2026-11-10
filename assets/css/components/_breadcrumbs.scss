@@ -1,0 +1,36 @@
+.wc-breadcrumbs {
+	margin-bottom: 1.5rem;
+	font-size: 0.875rem;
+}
+
+.wc-breadcrumbs ol {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wc-breadcrumbs li {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.wc-breadcrumbs a {
+	color: var(--wc-color-text, #334155);
+}
+
+.wc-breadcrumbs a:hover {
+	color: var(--wc-color-primary, #2563eb);
+}
+
+.wc-breadcrumbs [aria-current="page"] {
+	color: var(--wc-color-secondary, #1e293b);
+	font-weight: 600;
+}
+
+.breadcrumb-separator {
+	opacity: 0.5;
+}

@@ -1,0 +1,30 @@
+.pagination {
+	margin-top: 2.5rem;
+}
+
+.pagination .nav-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	justify-content: center;
+}
+
+.pagination .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 40px;
+	height: 40px;
+	padding: 0 0.75rem;
+	border: 1px solid rgba(15, 23, 42, 0.15);
+	border-radius: var(--wc-btn-radius, 4px);
+	color: var(--wc-color-secondary, #1e293b);
+	text-decoration: none;
+}
+
+.pagination .page-numbers.current,
+.pagination .page-numbers:hover {
+	background-color: var(--wc-color-primary, #2563eb);
+	border-color: var(--wc-color-primary, #2563eb);
+	color: #fff;
+}

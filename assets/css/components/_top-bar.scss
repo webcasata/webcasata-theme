@@ -1,0 +1,25 @@
+.top-bar {
+	background-color: var(--wc-color-secondary, #1e293b);
+	color: #fff;
+	font-size: 0.875rem;
+}
+
+.top-bar a {
+	color: inherit;
+}
+
+.top-bar-inner {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	min-height: 38px;
+}
+
+.top-bar-navigation ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}

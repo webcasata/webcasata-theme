@@ -1,0 +1,24 @@
+.webcasata-maintenance {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	margin: 0;
+	padding: 2rem;
+	text-align: center;
+	background-color: var(--wc-color-bg, #fff);
+	color: var(--wc-color-text, #334155);
+}
+
+.maintenance-wrap {
+	max-width: 520px;
+}
+
+.maintenance-title {
+	font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+	color: var(--wc-color-secondary, #1e293b);
+}
+
+.maintenance-message {
+	font-size: 1.125rem;
+}

@@ -1,0 +1,116 @@
+@use "../abstracts/mixins" as *;
+
+.main-navigation {
+	position: relative;
+}
+
+.main-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.main-navigation a {
+	display: block;
+	padding: 0.5rem 0.75rem;
+	color: var(--wc-color-secondary, #1e293b);
+	text-decoration: none;
+}
+
+.main-navigation .current-menu-item > a,
+.main-navigation a:hover,
+.main-navigation a:focus {
+	color: var(--wc-color-primary, #2563eb);
+}
+
+.menu-toggle {
+	@include button-reset;
+	display: none;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 1px solid rgba(15, 23, 42, 0.15);
+	border-radius: var(--wc-btn-radius, 4px);
+}
+
+.menu-toggle-box,
+.menu-toggle-box::before,
+.menu-toggle-box::after {
+	content: "";
+	display: block;
+	width: 20px;
+	height: 2px;
+	margin-inline: auto;
+	background-color: currentColor;
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-toggle-box::before {
+	transform: translateY(-6px);
+}
+
+.menu-toggle-box::after {
+	transform: translateY(4px);
+}
+
+// Mobile: collapse the menu behind the toggle button.
+@include media-down(md) {
+	.menu-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.main-navigation > ul,
+	.main-navigation .menu > ul {
+		display: none;
+	}
+
+	.main-navigation.is-open > ul,
+	.main-navigation.is-open .menu > ul {
+		display: block;
+		padding-block: 0.5rem;
+	}
+
+	.main-navigation {
+		order: 3;
+		width: 100%;
+	}
+}
+
+// Desktop: horizontal menu with simple dropdowns.
+@include media-up(md) {
+	.main-navigation > ul,
+	.main-navigation .menu {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.main-navigation .sub-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		min-width: 200px;
+		background-color: #fff;
+		box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+		border-radius: var(--wc-btn-radius, 4px);
+		padding: 0.5rem 0;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(6px);
+		transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+		z-index: 50;
+	}
+
+	.main-navigation .menu-item-has-children {
+		position: relative;
+	}
+
+	.main-navigation .menu-item-has-children:hover > .sub-menu,
+	.main-navigation .menu-item-has-children:focus-within > .sub-menu {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+}

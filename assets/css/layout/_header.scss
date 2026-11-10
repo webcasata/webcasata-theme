@@ -1,0 +1,90 @@
+@use "../abstracts/mixins" as *;
+
+.site-header {
+	background-color: var(--wc-color-header-bg, #fff);
+	border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.site-header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	min-height: 72px;
+}
+
+.site-branding {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.custom-logo {
+	max-height: 60px;
+	width: auto;
+}
+
+.site-title {
+	font-family: var(--wc-font-heading, inherit);
+	font-size: 1.375rem;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.2;
+}
+
+.site-title a {
+	color: var(--wc-color-secondary, #1e293b);
+	text-decoration: none;
+}
+
+.site-description {
+	margin: 0;
+	font-size: 0.8125rem;
+	color: var(--wc-color-text, #334155);
+}
+
+.header-widgets {
+	padding-block: 0.75rem;
+	border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.header-widgets .widget {
+	margin: 0;
+}
+
+// Centered logo layout.
+.header-logo-center .site-header-inner {
+	flex-direction: column;
+	text-align: center;
+	gap: 0.75rem;
+	padding-block: 0.75rem;
+
+	@include media-up(lg) {
+		flex-direction: column;
+	}
+
+	.main-navigation {
+		width: 100%;
+	}
+
+	.main-navigation > ul {
+		justify-content: center;
+	}
+}
+
+// Sticky header behavior is gated by a body class added only when enabled.
+.has-sticky-header .site-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+.admin-bar.has-sticky-header .site-header {
+	top: 32px;
+}
+
+@include media-down(md) {
+	.admin-bar.has-sticky-header .site-header {
+		top: 46px;
+	}
+}

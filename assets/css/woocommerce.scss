@@ -1,0 +1,4 @@
+// Webcasata WooCommerce stylesheet entry.
+// Enqueued only when WooCommerce is active.
+@use "abstracts/variables" as *;
+@use "woocommerce/woocommerce";

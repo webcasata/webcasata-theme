@@ -1,0 +1,16 @@
+{
+	"name": "webcasata-theme",
+	"version": "1.0.0",
+	"description": "Build scripts for the Webcasata WordPress theme.",
+	"private": true,
+	"scripts": {
+		"build": "npm run build:theme && npm run build:woo && npm run build:min",
+		"build:theme": "sass --style=expanded --source-map assets/css/theme.scss assets/css/theme.css",
+		"build:woo": "sass --style=expanded --source-map assets/css/woocommerce.scss assets/css/woocommerce.css",
+		"build:min": "sass --style=compressed --no-source-map assets/css/theme.scss assets/css/theme.min.css && sass --style=compressed --no-source-map assets/css/woocommerce.scss assets/css/woocommerce.min.css",
+		"watch": "sass --watch assets/css/theme.scss:assets/css/theme.css assets/css/woocommerce.scss:assets/css/woocommerce.css"
+	},
+	"devDependencies": {
+		"sass": "^1.77.0"
+	}
+}

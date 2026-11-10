@@ -1,0 +1,24 @@
+@use "sass:map";
+@use "variables" as *;
+
+@mixin media-up($key) {
+	$value: map.get($breakpoints, $key);
+	@media (min-width: $value) {
+		@content;
+	}
+}
+
+@mixin media-down($key) {
+	$value: map.get($breakpoints, $key);
+	@media (max-width: ($value - 1px)) {
+		@content;
+	}
+}
+
+@mixin button-reset {
+	appearance: none;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	font: inherit;
+}

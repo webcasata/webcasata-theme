@@ -1,0 +1,8 @@
+// Webcasata theme variables (build-time only; theming uses CSS custom properties).
+$breakpoints: (
+	sm: 600px,
+	md: 782px,
+	lg: 1024px
+);
+
+$content-max: 800px;

@@ -1,0 +1,41 @@
+.widget {
+	margin-bottom: 2rem;
+}
+
+.widget:last-child {
+	margin-bottom: 0;
+}
+
+.widget-title {
+	font-size: 1rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	margin-bottom: 0.75rem;
+}
+
+.widget ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.widget li {
+	padding: 0.35rem 0;
+	border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.widget li:last-child {
+	border-bottom: 0;
+}
+
+.site-footer .widget li {
+	border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.content-widgets {
+	margin-bottom: 2rem;
+}
+
+.content-widgets .widget {
+	margin-bottom: 1.5rem;
+}

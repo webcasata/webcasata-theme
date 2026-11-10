@@ -1,0 +1,80 @@
+@use "../abstracts/mixins" as *;
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.wp-block-button__link {
+	font-family: inherit;
+}
+
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.wp-block-button__link {
+	display: inline-block;
+	padding: var(--wc-btn-padding-y, 10px) var(--wc-btn-padding-x, 20px);
+	border: 1px solid var(--wc-color-primary, #2563eb);
+	border-radius: var(--wc-btn-radius, 4px);
+	background-color: var(--wc-color-primary, #2563eb);
+	color: #fff;
+	text-decoration: none;
+	line-height: 1.2;
+	cursor: pointer;
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+.wp-block-button__link:hover {
+	background-color: var(--wc-color-secondary, #1e293b);
+	border-color: var(--wc-color-secondary, #1e293b);
+	color: #fff;
+	text-decoration: none;
+}
+
+.button-secondary {
+	background-color: transparent;
+	color: var(--wc-color-primary, #2563eb);
+}
+
+.button-secondary:hover {
+	background-color: var(--wc-color-primary, #2563eb);
+	color: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+	width: 100%;
+	padding: 0.6rem 0.75rem;
+	border: 1px solid rgba(15, 23, 42, 0.2);
+	border-radius: var(--wc-btn-radius, 4px);
+	background-color: #fff;
+	color: var(--wc-color-text, #334155);
+	font-family: inherit;
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+textarea {
+	min-height: 140px;
+}
+
+.search-form {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.search-form .search-field {
+	flex: 1 1 auto;
+}
